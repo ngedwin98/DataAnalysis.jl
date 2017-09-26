@@ -20,7 +20,7 @@ function ift(Y::Vector{T}, df::Real) where {T<:Number}
 end
 
 function psd(y::Vector{T}, dt::Real) where {T<:Number}
-    return abs2.(dualFT(y,dt)) / (dt*length(y))
+    return abs2.(ft(y,dt)) / (dt*length(y))
 end
 
 end # module
