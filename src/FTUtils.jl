@@ -10,15 +10,15 @@ function ftaxis(N::Int, dx::Real)
     return (collect(0:N-1)-fld(N,2)) / (N*dx)
 end
 
-function ft{T<:Number}(y::Vector{T}, dt::Real)
+function ft(y::Vector{T}, dt::Real) where {T<:Number}
     return y*dt |> ifftshift |> fft |> fftshift
 end
 
-function ift{T<:Number}(Y::Vector{T}, df::Real)
+function ift(Y::Vector{T}, df::Real) where {T<:Number}
     return Y*df |> ifftshift |> bfft |> fftshift
 end
 
-function psd(y::Vector{T}, dt::Real)
+function psd(y::Vector{T}, dt::Real) where {T<:Number}
     return abs2.(dualFT(y,dt)) / (dt*length(y))
 end
 
