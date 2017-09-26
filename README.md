@@ -1,2 +1,2 @@
-# dataprocessing-utils
-Julia utils for processing data, especially time traces
+
+Julia utils for processing and analyzing data, especially time traces
