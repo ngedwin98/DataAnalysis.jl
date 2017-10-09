@@ -1,7 +1,7 @@
 
 module TraceUtils
 
-export dif, find
+export dif, find, pkpk
 
 import Base: find
 
@@ -11,6 +11,10 @@ end
 
 function find(v::Vector{T}, x::Number) where {T<:Real}
     return searchsortedlast(v, x)
+end
+
+function pkpk(v::Vector{T}) where {T<:Real}
+    return maximum(v) - minimum(v)
 end
 
 end

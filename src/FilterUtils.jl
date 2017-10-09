@@ -1,10 +1,12 @@
 
 module FilterUtils
 
+export lowpass_butterworth
+
 using DSP
 
-function lowpass(dt, f0)
-    filter = digitalfilter(Lowpass(f0;fs=1/dt), Butterworth(4))
+function lowpass_butterworth(f0, dt, n::Int=4)
+    filter = digitalfilter(Lowpass(f0;fs=1/dt), Butterworth(n))
     return data -> filtfilt(filter, data)
 end
 
